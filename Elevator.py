@@ -9,3 +9,14 @@ class Elevator:
         self.OpenTime = open_time
         self.StartTime = start_time
         self.StopTime = stop_time
+
+    def __str__(self):
+        return ", ".join([
+            str(self.ID),
+            str(self.Speed),
+            str(self.MinFloor),
+            str(self.MaxFloor),
+            str(self.CloseTime),
+            str(self.OpenTime),
+            str(self.StopTime),
+            str(self.StopTime)])

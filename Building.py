@@ -1,23 +1,12 @@
-import json
-from Elevator import Elevator
-
-
 class Building:
-    def __init__(self, buildingjson):
-        self.buildingjson = buildingjson
-        self.elevators = []
+    def __init__(self, min_floor, max_floor, elevators):
+        self.min_floor = min_floor
+        self.max_floor = max_floor
+        self.elevators = elevators
 
-        f = open(buildingjson)
-        data = json.load(f)
-
-        self.minfloor = data["_minFloor"]
-        self.maxfloor = data["_maxFloor"]
-
-        for i in data["_elevators"]:
-            self.elevators.append()
-            #print()
-
-
-        f.close()
     def __str__(self):
-        return ""
+        return ", ".join([
+            str(self.min_floor),
+            str(self.max_floor),
+            "".join(["[", ", ".join(["".join(['{', str(x), '}']) for x in self.elevators]), "]"])])
+
